@@ -13,10 +13,11 @@ permissions:
   pages: write
   id-token: write
 
-# Un solo despliegue concurrente
+# Un solo despliegue a la vez. NO cancelamos los que estén en curso:
+# dejamos que terminen y descartamos los intermedios en cola.
 concurrency:
   group: pages
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
   build:
