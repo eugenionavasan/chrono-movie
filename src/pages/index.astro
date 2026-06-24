@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import StartScreen from '../components/StartScreen.astro';
+import CountdownScreen from '../components/CountdownScreen.astro';
+import GameScreen from '../components/GameScreen.astro';
+import EndScreen from '../components/EndScreen.astro';
+---
+
+<Layout>
+  <StartScreen />
+  <CountdownScreen />
+  <GameScreen />
+  <EndScreen />
+</Layout>
+
+<script>
+  import '../scripts/game.js';
+</script>
