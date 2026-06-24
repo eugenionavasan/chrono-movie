@@ -1,5 +1,5 @@
 /* ============================================================
-   CHRONO·MOVIE — a Hitster-style movie timeline game
+   CHRONO·MOVIE — a movie timeline guessing game
    Movie data is imported from src/data/movies.json
    ============================================================ */
 
@@ -23,7 +23,8 @@ let seen = new Set(); // titles already shown this game — never repeat them
 let timeline = [];    // placed movies, kept sorted ascending by year
 let current = null;   // movie being guessed this round
 let attempts = 0;
-let muted = IS_MOBILE; // start muted on mobile so autoplay is allowed
+let muted = IS_MOBILE;      // start muted on mobile so autoplay is allowed
+let userUnmuted = false;    // once the user enables sound, keep it on for the rest
 let roundTimer = null;     // interval id for the countdown
 let secondsLeft = 0;
 let player = null;         // YouTube IFrame player
@@ -106,15 +107,18 @@ function loadVideo(videoId) {
   player.setVolume(60);
   try { player.playVideo(); } catch (_) {}
 
-  // Safety net: if the browser blocked autoplay (common when unmuted), the
-  // player won't be PLAYING shortly after. Fall back to muted playback so the
-  // trailer always runs; the user can re-enable sound with the 🔊 button.
+  // Safety net: if the browser blocked autoplay the player won't be PLAYING
+  // shortly after. If the user already enabled sound we respect it and just
+  // retry (most mobile browsers allow it after that first gesture); otherwise
+  // we fall back to muted playback so the trailer always runs.
   setTimeout(() => {
     try {
       if (player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
-        muted = true;
-        player.mute();
-        updateMuteButton();
+        if (!userUnmuted) {
+          muted = true;
+          player.mute();
+          updateMuteButton();
+        }
         player.playVideo();
       }
     } catch (_) {}
@@ -139,6 +143,9 @@ function startGame() {
   timeline = [];
   attempts = 0;
   current = null;
+  // Keep sound on if the user already enabled it; otherwise start muted on mobile.
+  muted = IS_MOBILE && !userUnmuted;
+  updateMuteButton();
 
   // Reference movie = first of shuffled pool
   const reference = pool.shift();
@@ -380,6 +387,9 @@ function updateMuteButton() {
 
 function toggleMute() {
   muted = !muted;
+  // Remember the user's intent: once they turn sound on, keep it on for the
+  // following trailers; if they deliberately mute, stop forcing sound.
+  userUnmuted = !muted;
   updateMuteButton();
   if (player) {
     if (muted) player.mute(); else { player.unMute(); player.setVolume(60); }

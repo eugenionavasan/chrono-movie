@@ -1,8 +1,11 @@
 # CHRONO·MOVIE 🎬
 
-Juego estilo **Hitster** para construir una línea cronológica de cine: ves
-30 segundos de un tráiler (sin título, sin pistas) y adivinas en qué hueco del eje
-temporal encaja la película según su año de estreno. Migrado a **Astro** y **responsive**.
+Juego para construir una línea cronológica de cine: ves 30 segundos de un tráiler
+(sin título, sin pistas) y adivinas en qué hueco del eje temporal encaja la película
+según su año de estreno. Hecho con **Astro** y **responsive**.
+
+> Los tráilers se muestran con fines lúdicos y educativos, sin ánimo de lucro.
+> Todos los derechos pertenecen a sus respectivos propietarios.
 
 ## Requisitos
 

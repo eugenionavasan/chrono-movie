@@ -68,6 +68,11 @@ html, body {
   font-weight: 300; font-size: 0.98rem;
 }
 .rules b { color: var(--gold-soft); font-weight: 600; }
+.disclaimer {
+  margin: 26px auto 0; max-width: 460px;
+  font-size: 0.72rem; font-weight: 300; line-height: 1.4;
+  color: #8c8675; letter-spacing: 0.3px;
+}
 
 /* ---------- Cinematic button ---------- */
 .cine-btn {
