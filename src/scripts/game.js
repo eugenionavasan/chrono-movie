@@ -31,6 +31,7 @@ let secondsLeft = 0;
 let player = null;         // YouTube IFrame player
 let ytReady = false;
 let pendingVideoId = null; // queued while player API loads
+let currentVideoId = null; // the trailer we asked for (to tell it apart from ads)
 
 // ---------- DOM ----------
 const $ = (id) => document.getElementById(id);
@@ -102,6 +103,7 @@ function loadVideo(videoId) {
     pendingVideoId = videoId;
     return;
   }
+  currentVideoId = videoId;
   // start a little into the clip to skip intros/black frames
   player.loadVideoById({ videoId, startSeconds: 8 });
   if (muted) player.mute(); else player.unMute();
@@ -124,6 +126,24 @@ function loadVideo(videoId) {
       }
     } catch (_) {}
   }, 1200);
+}
+
+// The IFrame API has no official "ad playing" event, but during a pre/mid-roll
+// ad the player reports the AD's metadata, whose video_id differs from the
+// trailer we asked for. We treat the round as "really playing" only when the
+// player is PLAYING *and* the on-screen video matches our requested trailer.
+function isTrailerPlaying() {
+  try {
+    if (!player || !player.getPlayerState) return false;
+    if (player.getPlayerState() !== YT.PlayerState.PLAYING) return false;
+    const data = player.getVideoData && player.getVideoData();
+    if (data && data.video_id && currentVideoId && data.video_id !== currentVideoId) {
+      return false; // an ad is on screen — don't count the time
+    }
+    return true;
+  } catch (_) {
+    return false;
+  }
 }
 
 // ---------- Utilities ----------
@@ -229,24 +249,31 @@ function startTimer() {
   const txt = $('timer-text');
 
   bar.classList.remove('low');
-  // reset instantly then animate down
-  fill.style.transition = 'none';
+  // The bar is now driven by JS each tick (so it can pause during ads); a short
+  // linear transition keeps it smooth between updates.
+  fill.style.transition = 'transform 0.25s linear';
   fill.style.transform = 'scaleX(1)';
-  // force reflow
-  void fill.offsetWidth;
-  fill.style.transition = `transform ${ROUND_SECONDS}s linear`;
-  fill.style.transform = 'scaleX(0)';
   txt.textContent = secondsLeft;
 
+  // Drive the countdown from real elapsed time, but only accumulate it while the
+  // trailer is actually on screen — ads (and buffering) pause the clock.
+  let last = performance.now();
   roundTimer = setInterval(() => {
-    secondsLeft--;
-    txt.textContent = Math.max(secondsLeft, 0);
+    const now = performance.now();
+    const dt = (now - last) / 1000;
+    last = now;
+
+    if (!isTrailerPlaying()) return; // ad / buffering / paused → freeze the timer
+
+    secondsLeft -= dt;
+    txt.textContent = Math.max(Math.ceil(secondsLeft), 0);
+    fill.style.transform = `scaleX(${Math.max(secondsLeft / ROUND_SECONDS, 0)})`;
     if (secondsLeft <= 8) bar.classList.add('low');
     if (secondsLeft <= 0) {
       clearInterval(roundTimer);
       handleTimeout();
     }
-  }, 1000);
+  }, 200);
 }
 
 function stopTimer() {
