@@ -10,13 +10,20 @@ const TARGET_TIMELINE = 10;   // total movies needed on the axis to win (incl. r
 const MAX_ATTEMPTS = 20;      // attempts available
 const ROUND_SECONDS = 30;     // trailer playback time per round
 
+// Mobile browsers block autoplay WITH sound; only muted video may autoplay.
+// On these devices we start muted so the trailer always plays, and the user
+// can tap the 🔊 button (a user gesture, which is allowed) to enable sound.
+const IS_MOBILE =
+  /Android|iPhone|iPad|iPod|Mobile|Silk/i.test(navigator.userAgent) ||
+  (('ontouchstart' in window) && window.matchMedia('(max-width: 900px)').matches);
+
 // ---------- State ----------
 let pool = [];        // shuffled movies not yet used
 let seen = new Set(); // titles already shown this game — never repeat them
 let timeline = [];    // placed movies, kept sorted ascending by year
 let current = null;   // movie being guessed this round
 let attempts = 0;
-let muted = false;
+let muted = IS_MOBILE; // start muted on mobile so autoplay is allowed
 let roundTimer = null;     // interval id for the countdown
 let secondsLeft = 0;
 let player = null;         // YouTube IFrame player
@@ -45,6 +52,7 @@ window.onYouTubeIframeAPIReady = function () {
     height: '100%',
     playerVars: {
       autoplay: 1,
+      mute: muted ? 1 : 0, // muted autoplay is required on mobile
       controls: 0,      // hide controls
       disablekb: 1,     // no keyboard
       fs: 0,            // no fullscreen button
@@ -97,6 +105,20 @@ function loadVideo(videoId) {
   if (muted) player.mute(); else player.unMute();
   player.setVolume(60);
   try { player.playVideo(); } catch (_) {}
+
+  // Safety net: if the browser blocked autoplay (common when unmuted), the
+  // player won't be PLAYING shortly after. Fall back to muted playback so the
+  // trailer always runs; the user can re-enable sound with the 🔊 button.
+  setTimeout(() => {
+    try {
+      if (player.getPlayerState && player.getPlayerState() !== YT.PlayerState.PLAYING) {
+        muted = true;
+        player.mute();
+        updateMuteButton();
+        player.playVideo();
+      }
+    } catch (_) {}
+  }, 1200);
 }
 
 // ---------- Utilities ----------
@@ -350,15 +372,22 @@ function goHome() {
   showScreen('start');
 }
 
+function updateMuteButton() {
+  const btn = $('btn-mute');
+  btn.textContent = muted ? '🔇' : '🔊';
+  btn.title = muted ? 'Toca para activar el sonido' : 'Silenciar';
+}
+
 function toggleMute() {
   muted = !muted;
-  $('btn-mute').textContent = muted ? '🔇' : '🔊';
+  updateMuteButton();
   if (player) {
     if (muted) player.mute(); else { player.unMute(); player.setVolume(60); }
   }
 }
 
 // ---------- Wire up ----------
+updateMuteButton(); // reflect initial muted state (muted on mobile)
 $('btn-start').addEventListener('click', startGame);
 $('btn-again').addEventListener('click', startGame);
 $('btn-home').addEventListener('click', goHome);
