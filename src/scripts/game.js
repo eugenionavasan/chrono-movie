@@ -178,9 +178,9 @@ function runCountdown(done) {
         <div class="cd-ring">
           <svg class="cd-svg" viewBox="0 0 100 100" aria-hidden="true">
             <circle class="cd-track" cx="50" cy="50" r="46"></circle>
-            <circle class="cd-progress" cx="50" cy="50" r="46"></circle>
+            <circle class="cd-progress" cx="50" cy="50" r="46" transform="rotate(-90 50 50)"></circle>
+            <text class="cd-num" x="50" y="50" text-anchor="middle" dominant-baseline="central">${steps[i]}</text>
           </svg>
-          <span class="cd-num">${steps[i]}</span>
         </div>`;
       i++;
       setTimeout(tick, 1000);
