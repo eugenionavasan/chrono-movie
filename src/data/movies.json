@@ -120,12 +120,6 @@
     "poster_url": "https://image.tmdb.org/t/p/w500/uCC3j4pV9eOZwzDUWp2ilbcTf1f.jpg"
   },
   {
-    "title": "Fantasia",
-    "year": 1940,
-    "trailer_url": "https://www.youtube.com/watch?v=V88OP8n1IQY",
-    "poster_url": "https://image.tmdb.org/t/p/w500/5m9njnidjR0syG2gpVPVgcEMB2X.jpg"
-  },
-  {
     "title": "Citizen Kane",
     "year": 1941,
     "trailer_url": "https://www.youtube.com/watch?v=8dxh3lwdOFw",
@@ -712,5 +706,377 @@
     "year": 2024,
     "trailer_url": "https://www.youtube.com/watch?v=Way9Dexny3w",
     "poster_url": "https://img.youtube.com/vi/Way9Dexny3w/hqdefault.jpg"
+  },
+  {
+    "title": "Bambi",
+    "year": 1942,
+    "trailer_url": "https://www.youtube.com/watch?v=nLvX-erABqY",
+    "poster_url": "https://img.youtube.com/vi/nLvX-erABqY/hqdefault.jpg"
+  },
+  {
+    "title": "Sleeping Beauty",
+    "year": 1959,
+    "trailer_url": "https://www.youtube.com/watch?v=TXbHShUnwxY",
+    "poster_url": "https://img.youtube.com/vi/TXbHShUnwxY/hqdefault.jpg"
+  },
+  {
+    "title": "One Hundred and One Dalmatians",
+    "year": 1996,
+    "trailer_url": "https://www.youtube.com/watch?v=VApVpvcGW1A",
+    "poster_url": "https://img.youtube.com/vi/VApVpvcGW1A/hqdefault.jpg"
+  },
+  {
+    "title": "Mary Poppins",
+    "year": 1964,
+    "trailer_url": "https://www.youtube.com/watch?v=nOfH7uEojKk",
+    "poster_url": "https://img.youtube.com/vi/nOfH7uEojKk/hqdefault.jpg"
+  },
+  {
+    "title": "Robin Hood",
+    "year": 1973,
+    "trailer_url": "https://www.youtube.com/watch?v=QLhYSw67pdg",
+    "poster_url": "https://img.youtube.com/vi/QLhYSw67pdg/hqdefault.jpg"
+  },
+  {
+    "title": "The Little Mermaid",
+    "year": 1989,
+    "trailer_url": "https://www.youtube.com/watch?v=ZGZX5-PAwR8",
+    "poster_url": "https://img.youtube.com/vi/ZGZX5-PAwR8/hqdefault.jpg"
+  },
+  {
+    "title": "Beauty and the Beast",
+    "year": 1991,
+    "trailer_url": "https://www.youtube.com/watch?v=tRlzmyveDHE",
+    "poster_url": "https://img.youtube.com/vi/tRlzmyveDHE/hqdefault.jpg"
+  },
+  {
+    "title": "Aladdin",
+    "year": 1992,
+    "trailer_url": "https://www.youtube.com/watch?v=eTjHiQKJUDY",
+    "poster_url": "https://img.youtube.com/vi/eTjHiQKJUDY/hqdefault.jpg"
+  },
+  {
+    "title": "The Lion King",
+    "year": 1994,
+    "trailer_url": "https://www.youtube.com/watch?v=4sj1MT05lAA",
+    "poster_url": "https://img.youtube.com/vi/4sj1MT05lAA/hqdefault.jpg"
+  },
+  {
+    "title": "The Hunchback of Notre Dame",
+    "year": 1996,
+    "trailer_url": "https://www.youtube.com/watch?v=O6i3lyx1I_g",
+    "poster_url": "https://img.youtube.com/vi/O6i3lyx1I_g/hqdefault.jpg"
+  },
+  {
+    "title": "Hercules",
+    "year": 1997,
+    "trailer_url": "https://www.youtube.com/watch?v=ZvtspevZxpg",
+    "poster_url": "https://img.youtube.com/vi/ZvtspevZxpg/hqdefault.jpg"
+  },
+  {
+    "title": "Mulan",
+    "year": 1998,
+    "trailer_url": "https://www.youtube.com/watch?v=MsAniqGowKE",
+    "poster_url": "https://img.youtube.com/vi/MsAniqGowKE/hqdefault.jpg"
+  },
+  {
+    "title": "Tarzan",
+    "year": 1999,
+    "trailer_url": "https://www.youtube.com/watch?v=zc3MnoSS5Hw",
+    "poster_url": "https://img.youtube.com/vi/zc3MnoSS5Hw/hqdefault.jpg"
+  },
+  {
+    "title": "The Emperor's New Groove",
+    "year": 2000,
+    "trailer_url": "https://www.youtube.com/watch?v=JX6btxoFhI8",
+    "poster_url": "https://img.youtube.com/vi/JX6btxoFhI8/hqdefault.jpg"
+  },
+  {
+    "title": "Lilo & Stitch",
+    "year": 2002,
+    "trailer_url": "https://www.youtube.com/watch?v=wAtaSKQ4-T0",
+    "poster_url": "https://img.youtube.com/vi/wAtaSKQ4-T0/hqdefault.jpg"
+  },
+  {
+    "title": "Brother Bear",
+    "year": 2003,
+    "trailer_url": "https://www.youtube.com/watch?v=B80VKbxZs6E",
+    "poster_url": "https://img.youtube.com/vi/B80VKbxZs6E/hqdefault.jpg"
+  },
+  {
+    "title": "The Princess and the Frog",
+    "year": 2009,
+    "trailer_url": "https://www.youtube.com/watch?v=uQBy6jqbmlU",
+    "poster_url": "https://img.youtube.com/vi/uQBy6jqbmlU/hqdefault.jpg"
+  },
+  {
+    "title": "Wreck-It Ralph",
+    "year": 2012,
+    "trailer_url": "https://www.youtube.com/watch?v=87E6N7ToCxs",
+    "poster_url": "https://img.youtube.com/vi/87E6N7ToCxs/hqdefault.jpg"
+  },
+  {
+    "title": "Frozen",
+    "year": 2013,
+    "trailer_url": "https://www.youtube.com/watch?v=TbQm5doF_Uc",
+    "poster_url": "https://img.youtube.com/vi/TbQm5doF_Uc/hqdefault.jpg"
+  },
+  {
+    "title": "Big Hero 6",
+    "year": 2014,
+    "trailer_url": "https://www.youtube.com/watch?v=z3biFxZIJOQ",
+    "poster_url": "https://img.youtube.com/vi/z3biFxZIJOQ/hqdefault.jpg"
+  },
+  {
+    "title": "Zootopia",
+    "year": 2016,
+    "trailer_url": "https://www.youtube.com/watch?v=jWM0ct-OLsM",
+    "poster_url": "https://img.youtube.com/vi/jWM0ct-OLsM/hqdefault.jpg"
+  },
+  {
+    "title": "Moana",
+    "year": 2016,
+    "trailer_url": "https://www.youtube.com/watch?v=LKFuXETZUsI",
+    "poster_url": "https://img.youtube.com/vi/LKFuXETZUsI/hqdefault.jpg"
+  },
+  {
+    "title": "Raya and the Last Dragon",
+    "year": 2021,
+    "trailer_url": "https://www.youtube.com/watch?v=1VIZ89FEjYI",
+    "poster_url": "https://img.youtube.com/vi/1VIZ89FEjYI/hqdefault.jpg"
+  },
+  {
+    "title": "Encanto",
+    "year": 2021,
+    "trailer_url": "https://www.youtube.com/watch?v=CaimKeDcudo",
+    "poster_url": "https://img.youtube.com/vi/CaimKeDcudo/hqdefault.jpg"
+  },
+  {
+    "title": "Wish",
+    "year": 2023,
+    "trailer_url": "https://www.youtube.com/watch?v=oyRxxpD3yNw",
+    "poster_url": "https://img.youtube.com/vi/oyRxxpD3yNw/hqdefault.jpg"
+  },
+  {
+    "title": "Toy Story",
+    "year": 1995,
+    "trailer_url": "https://www.youtube.com/watch?v=v-PjgYDrg70",
+    "poster_url": "https://img.youtube.com/vi/v-PjgYDrg70/hqdefault.jpg"
+  },
+  {
+    "title": "A Bug's Life",
+    "year": 1998,
+    "trailer_url": "https://www.youtube.com/watch?v=mE35XQFxbeo",
+    "poster_url": "https://img.youtube.com/vi/mE35XQFxbeo/hqdefault.jpg"
+  },
+  {
+    "title": "Monsters, Inc.",
+    "year": 2001,
+    "trailer_url": "https://www.youtube.com/watch?v=CGbgaHoapFM",
+    "poster_url": "https://img.youtube.com/vi/CGbgaHoapFM/hqdefault.jpg"
+  },
+  {
+    "title": "Finding Nemo",
+    "year": 2003,
+    "trailer_url": "https://www.youtube.com/watch?v=wZdpNglLbt8",
+    "poster_url": "https://img.youtube.com/vi/wZdpNglLbt8/hqdefault.jpg"
+  },
+  {
+    "title": "The Incredibles",
+    "year": 2004,
+    "trailer_url": "https://www.youtube.com/watch?v=-UaGUdNJdRQ",
+    "poster_url": "https://img.youtube.com/vi/-UaGUdNJdRQ/hqdefault.jpg"
+  },
+  {
+    "title": "Ratatouille",
+    "year": 2007,
+    "trailer_url": "https://www.youtube.com/watch?v=NgsQ8mVkN8w",
+    "poster_url": "https://img.youtube.com/vi/NgsQ8mVkN8w/hqdefault.jpg"
+  },
+  {
+    "title": "Inside Out",
+    "year": 2015,
+    "trailer_url": "https://www.youtube.com/watch?v=yRUAzGQ3nSY",
+    "poster_url": "https://img.youtube.com/vi/yRUAzGQ3nSY/hqdefault.jpg"
+  },
+  {
+    "title": "Coco",
+    "year": 2017,
+    "trailer_url": "https://www.youtube.com/watch?v=xlnPHQ3TLX8",
+    "poster_url": "https://img.youtube.com/vi/xlnPHQ3TLX8/hqdefault.jpg"
+  },
+  {
+    "title": "Soul",
+    "year": 2020,
+    "trailer_url": "https://www.youtube.com/watch?v=xOsLIiBStEs",
+    "poster_url": "https://img.youtube.com/vi/xOsLIiBStEs/hqdefault.jpg"
+  },
+  {
+    "title": "Luca",
+    "year": 2021,
+    "trailer_url": "https://www.youtube.com/watch?v=mYfJxlgR2jw",
+    "poster_url": "https://img.youtube.com/vi/mYfJxlgR2jw/hqdefault.jpg"
+  },
+  {
+    "title": "Turning Red",
+    "year": 2022,
+    "trailer_url": "https://www.youtube.com/watch?v=XdKzUbAiswE",
+    "poster_url": "https://img.youtube.com/vi/XdKzUbAiswE/hqdefault.jpg"
+  },
+  {
+    "title": "High School Musical",
+    "year": 2006,
+    "trailer_url": "https://www.youtube.com/watch?v=ukDLkkvZYFk",
+    "poster_url": "https://img.youtube.com/vi/ukDLkkvZYFk/hqdefault.jpg"
+  },
+  {
+    "title": "High School Musical 2",
+    "year": 2007,
+    "trailer_url": "https://www.youtube.com/watch?v=U3G1BogR-68",
+    "poster_url": "https://img.youtube.com/vi/U3G1BogR-68/hqdefault.jpg"
+  },
+  {
+    "title": "High School Musical 3: Senior Year",
+    "year": 2008,
+    "trailer_url": "https://www.youtube.com/watch?v=bEQXcbqvbT0",
+    "poster_url": "https://img.youtube.com/vi/bEQXcbqvbT0/hqdefault.jpg"
+  },
+  {
+    "title": "Camp Rock",
+    "year": 2008,
+    "trailer_url": "https://www.youtube.com/watch?v=UpmE5h_6Jb0",
+    "poster_url": "https://img.youtube.com/vi/UpmE5h_6Jb0/hqdefault.jpg"
+  },
+  {
+    "title": "Camp Rock 2: The Final Jam",
+    "year": 2010,
+    "trailer_url": "https://www.youtube.com/watch?v=Suso5TN4SWs",
+    "poster_url": "https://img.youtube.com/vi/Suso5TN4SWs/hqdefault.jpg"
+  },
+  {
+    "title": "Descendants",
+    "year": 2015,
+    "trailer_url": "https://www.youtube.com/watch?v=iQLFxkGyrRk",
+    "poster_url": "https://img.youtube.com/vi/iQLFxkGyrRk/hqdefault.jpg"
+  },
+  {
+    "title": "The Parent Trap",
+    "year": 1998,
+    "trailer_url": "https://www.youtube.com/watch?v=PMAhVpgzmRU",
+    "poster_url": "https://img.youtube.com/vi/PMAhVpgzmRU/hqdefault.jpg"
+  },
+  {
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": 2003,
+    "trailer_url": "https://www.youtube.com/watch?v=naQr0uTrH_s",
+    "poster_url": "https://img.youtube.com/vi/naQr0uTrH_s/hqdefault.jpg"
+  },
+  {
+    "title": "National Treasure",
+    "year": 2004,
+    "trailer_url": "https://www.youtube.com/watch?v=vqUPxNT8io4",
+    "poster_url": "https://img.youtube.com/vi/vqUPxNT8io4/hqdefault.jpg"
+  },
+  {
+    "title": "The Chronicles of Narnia: The Lion, the Witch and the Wardrobe",
+    "year": 2005,
+    "trailer_url": "https://www.youtube.com/watch?v=usEkWtuNn-w",
+    "poster_url": "https://img.youtube.com/vi/usEkWtuNn-w/hqdefault.jpg"
+  },
+  {
+    "title": "Alice in Wonderland",
+    "year": 2010,
+    "trailer_url": "https://www.youtube.com/watch?v=9POCgSRVvf0",
+    "poster_url": "https://img.youtube.com/vi/9POCgSRVvf0/hqdefault.jpg"
+  },
+  {
+    "title": "The Jungle Book",
+    "year": 2016,
+    "trailer_url": "https://www.youtube.com/watch?v=5mkm22yO-bs",
+    "poster_url": "https://img.youtube.com/vi/5mkm22yO-bs/hqdefault.jpg"
+  },
+  {
+    "title": "The Lion King",
+    "year": 2019,
+    "trailer_url": "https://www.youtube.com/watch?v=7TavVZMewpY",
+    "poster_url": "https://img.youtube.com/vi/7TavVZMewpY/hqdefault.jpg"
+  },
+  {
+    "title": "Mulan",
+    "year": 2020,
+    "trailer_url": "https://www.youtube.com/watch?v=KK8FHdFluOQ",
+    "poster_url": "https://img.youtube.com/vi/KK8FHdFluOQ/hqdefault.jpg"
+  },
+  {
+    "title": "The Little Mermaid",
+    "year": 2023,
+    "trailer_url": "https://www.youtube.com/watch?v=kpGo2_d3oYE",
+    "poster_url": "https://img.youtube.com/vi/kpGo2_d3oYE/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Philosopher's Stone",
+    "year": 2001,
+    "trailer_url": "https://www.youtube.com/watch?v=mNgwNXKBEW0",
+    "poster_url": "https://img.youtube.com/vi/mNgwNXKBEW0/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Chamber of Secrets",
+    "year": 2002,
+    "trailer_url": "https://www.youtube.com/watch?v=jBltxS8HfQ4",
+    "poster_url": "https://img.youtube.com/vi/jBltxS8HfQ4/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Prisoner of Azkaban",
+    "year": 2004,
+    "trailer_url": "https://www.youtube.com/watch?v=lAxgztbYDbs",
+    "poster_url": "https://img.youtube.com/vi/lAxgztbYDbs/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Goblet of Fire",
+    "year": 2005,
+    "trailer_url": "https://www.youtube.com/watch?v=3EGojp4Hh6I",
+    "poster_url": "https://img.youtube.com/vi/3EGojp4Hh6I/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Order of the Phoenix",
+    "year": 2007,
+    "trailer_url": "https://www.youtube.com/watch?v=y6ZW7KXaXYk",
+    "poster_url": "https://img.youtube.com/vi/y6ZW7KXaXYk/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Half-Blood Prince",
+    "year": 2009,
+    "trailer_url": "https://www.youtube.com/watch?v=tAiy66Xrsz4",
+    "poster_url": "https://img.youtube.com/vi/tAiy66Xrsz4/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 1",
+    "year": 2010,
+    "trailer_url": "https://www.youtube.com/watch?v=MxqsmsA8y5k",
+    "poster_url": "https://img.youtube.com/vi/MxqsmsA8y5k/hqdefault.jpg"
+  },
+  {
+    "title": "Harry Potter and the Deathly Hallows: Part 2",
+    "year": 2011,
+    "trailer_url": "https://www.youtube.com/watch?v=5NYt1qirBWg",
+    "poster_url": "https://img.youtube.com/vi/5NYt1qirBWg/hqdefault.jpg"
+  },
+  {
+    "title": "The Hobbit: An Unexpected Journey",
+    "year": 2012,
+    "trailer_url": "https://www.youtube.com/watch?v=SDnYMbYB-nU",
+    "poster_url": "https://img.youtube.com/vi/SDnYMbYB-nU/hqdefault.jpg"
+  },
+  {
+    "title": "The Hobbit: The Desolation of Smaug",
+    "year": 2013,
+    "trailer_url": "https://www.youtube.com/watch?v=OPVWy1tFXuc",
+    "poster_url": "https://img.youtube.com/vi/OPVWy1tFXuc/hqdefault.jpg"
+  },
+  {
+    "title": "The Hobbit: The Battle of the Five Armies",
+    "year": 2014,
+    "trailer_url": "https://www.youtube.com/watch?v=iVAgTiBrrDA",
+    "poster_url": "https://img.youtube.com/vi/iVAgTiBrrDA/hqdefault.jpg"
   }
 ]

@@ -8,7 +8,7 @@ import MOVIES from '../data/movies.json';
 // ---------- Config ----------
 const TARGET_TIMELINE = 10;   // total movies needed on the axis to win (incl. reference)
 const MAX_ATTEMPTS = 20;      // attempts available
-const ROUND_SECONDS = 30;     // trailer playback time per round
+const ROUND_SECONDS = 50;     // trailer playback time per round
 
 // Mobile browsers block autoplay WITH sound; only muted video may autoplay.
 // On these devices we start muted so the trailer always plays, and the user
@@ -21,6 +21,7 @@ const IS_MOBILE =
 let pool = [];        // shuffled movies not yet used
 let seen = new Set(); // titles already shown this game — never repeat them
 let timeline = [];    // placed movies, kept sorted ascending by year
+let referenceMovie = null; // the starting movie — keeps the REFERENCIA tag
 let current = null;   // movie being guessed this round
 let attempts = 0;
 let muted = IS_MOBILE;      // start muted on mobile so autoplay is allowed
@@ -149,6 +150,7 @@ function startGame() {
 
   // Reference movie = first of shuffled pool
   const reference = pool.shift();
+  referenceMovie = reference;
   seen.add(reference.title);
   timeline.push(reference);
 
@@ -172,12 +174,19 @@ function runCountdown(done) {
   const tick = () => {
     if (i < steps.length) {
       el.className = 'countdown-number';
-      el.innerHTML = `<div class="cd-count">${steps[i]}</div>`;
+      el.innerHTML = `
+        <div class="cd-ring">
+          <svg class="cd-svg" viewBox="0 0 100 100" aria-hidden="true">
+            <circle class="cd-track" cx="50" cy="50" r="46"></circle>
+            <circle class="cd-progress" cx="50" cy="50" r="46"></circle>
+          </svg>
+          <span class="cd-num">${steps[i]}</span>
+        </div>`;
       i++;
       setTimeout(tick, 1000);
     } else {
       el.innerHTML = `<div class="cd-action">¡ACCIÓN!</div>`;
-      setTimeout(done, 1100);
+      setTimeout(done, 1200);
     }
   };
   tick();
@@ -327,7 +336,7 @@ function renderTimeline(highlightCardIndex = -1) {
     tl.appendChild(slot);
 
     if (i < timeline.length) {
-      tl.appendChild(buildCard(timeline[i], i === 0, i === highlightCardIndex));
+      tl.appendChild(buildCard(timeline[i], timeline[i] === referenceMovie, i === highlightCardIndex));
     }
   }
 
