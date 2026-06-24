@@ -174,12 +174,14 @@ function runCountdown(done) {
   const tick = () => {
     if (i < steps.length) {
       el.className = 'countdown-number';
+      // The "1" glyph isn't centred within its advance width, so nudge it left.
+      const dx = steps[i] === '1' ? -2.2 : 0;
       el.innerHTML = `
         <div class="cd-ring">
           <svg class="cd-svg" viewBox="0 0 100 100" aria-hidden="true">
             <circle class="cd-track" cx="50" cy="50" r="46"></circle>
             <circle class="cd-progress" cx="50" cy="50" r="46" transform="rotate(-90 50 50)"></circle>
-            <text class="cd-num" x="50" y="50" text-anchor="middle" dominant-baseline="central">${steps[i]}</text>
+            <text class="cd-num" x="50" y="50" dx="${dx}" text-anchor="middle" dominant-baseline="central">${steps[i]}</text>
           </svg>
         </div>`;
       i++;
@@ -370,11 +372,11 @@ function endGame(won) {
   const title = $('end-title');
   const sub = $('end-sub');
   if (won) {
-    title.textContent = '¡HAS GANADO, CINÉFILO HISTÓRICO!';
+    title.textContent = '🏆 ¡HAS GANADO, CINÉFILO HISTÓRICO! 🍿';
     title.className = 'end-title win';
     sub.textContent = `¡Eje cronológico completado con ${timeline.length} películas en ${attempts} intentos!`;
   } else {
-    title.textContent = '¡HAS PERDIDO, ¿!PERO TU CUANTAS PELICULAS HAS VISTO EN TU VIDA!?';
+    title.textContent = '🙈 ¡HAS PERDIDO, ¿!PERO TU CUANTAS PELICULAS HAS VISTO EN TU VIDA!? 😅';
     title.className = 'end-title lose';
     sub.textContent = `Colocaste ${timeline.length} de ${TARGET_TIMELINE} películas. ¡Vuelve a intentarlo!`;
   }
