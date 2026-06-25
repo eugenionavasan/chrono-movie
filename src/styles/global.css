@@ -97,6 +97,36 @@ html, body {
 .cine-btn:active { transform: translateY(1px) scale(0.99); }
 .cine-btn__label { position: relative; z-index: 1; }
 
+/* ---------- Mode select ---------- */
+#screen-mode { align-items: center; justify-content: center; text-align: center; overflow-y: auto; }
+.mode-inner { max-width: 760px; padding: 32px; }
+.mode-heading {
+  font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 6vw, 3.4rem);
+  letter-spacing: 3px; color: var(--gold);
+  text-shadow: 0 0 24px rgba(232,198,106,0.4), 0 3px 0 #000;
+}
+.mode-tagline { margin-top: 10px; font-weight: 300; color: #cfc8b6; letter-spacing: 0.5px; }
+.mode-tagline b { color: var(--gold-soft); font-weight: 600; }
+.mode-grid {
+  display: flex; flex-wrap: wrap; justify-content: center;
+  gap: 18px; margin: 34px auto 26px;
+}
+.mode-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+  margin-top: 0; min-width: 190px;
+}
+.mode-btn__sub {
+  position: relative; z-index: 1;
+  font-family: inherit; font-size: 0.8rem; letter-spacing: 1.5px;
+  color: #cfc8b6; font-weight: 400;
+}
+.mode-btn--hard { border-color: var(--red); color: #f0c9c2; }
+.mode-btn--hard:hover { box-shadow: 0 0 0 4px rgba(0,0,0,0.5), 0 0 40px rgba(200,60,50,0.5); }
+@media (max-width: 600px) {
+  .mode-grid { flex-direction: column; align-items: stretch; gap: 14px; }
+  .mode-btn { min-width: 0; }
+}
+
 /* ---------- Countdown ---------- */
 .overlay-countdown {
   align-items: center; justify-content: center; z-index: 60;

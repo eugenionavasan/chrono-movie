@@ -1,0 +1,32 @@
+---
+// Difficulty selection — shown after "INICIAR JUEGO", before the countdown.
+// The number of attempts changes per mode; the target axis stays at 10 movies.
+---
+
+<section id="screen-mode" class="screen">
+  <div class="mode-inner">
+    <h2 class="mode-heading">ELIGE TU DIFICULTAD</h2>
+    <p class="mode-tagline">
+      Completa el eje de <b>10 películas</b>. Lo que cambia son los intentos.
+    </p>
+
+    <div class="mode-grid">
+      <button class="cine-btn mode-btn" data-mode="easy">
+        <span class="cine-btn__label">🟢 FÁCIL</span>
+        <span class="mode-btn__sub">20 intentos</span>
+      </button>
+      <button class="cine-btn mode-btn" data-mode="normal">
+        <span class="cine-btn__label">🟡 NORMAL</span>
+        <span class="mode-btn__sub">15 intentos</span>
+      </button>
+      <button class="cine-btn mode-btn mode-btn--hard" data-mode="hardcore">
+        <span class="cine-btn__label">🔴 HARDCORE</span>
+        <span class="mode-btn__sub">10 intentos</span>
+      </button>
+    </div>
+
+    <button id="btn-mode-back" class="cine-btn cine-btn--ghost">
+      <span class="cine-btn__label">⌂ VOLVER</span>
+    </button>
+  </div>
+</section>

@@ -7,8 +7,32 @@ import MOVIES from '../data/movies.json';
 
 // ---------- Config ----------
 const TARGET_TIMELINE = 10;   // total movies needed on the axis to win (incl. reference)
-const MAX_ATTEMPTS = 20;      // attempts available
 const ROUND_SECONDS = 50;     // trailer playback time per round
+
+// Difficulty modes — only the number of attempts (and the win/lose flavour
+// text) changes; the target axis is always 10 movies.
+const MODES = {
+  easy: {
+    label: 'Fácil',
+    attempts: 20,
+    win:  '🍿 ¡Con 20 intentos lo hace hasta un ciego con el trailer sin sonido…',
+    lose: '🎬 ¡Has perdido! Ni clickando a lo loco se puede perder en fácil...😅',
+  },
+  normal: {
+    label: 'Normal',
+    attempts: 15,
+    win:  '🏆 ¡HAS GANADO! ¡Te está cundiendo Netflix, eh! 🍿',
+    lose: '😅 Ponte a ver alguna película más que todavia no te da para esta dificultad...🍿',
+  },
+  hardcore: {
+    label: 'Hardcore',
+    attempts: 10,
+    win:  '👑 ¡LEYENDA DEL CINE! ¡Estás manteniendo tu solo el cine de tu barrio! 😂',
+    lose: '💀 ¡HAS PERDIDO! Vuelve a la dificultad que de verdad te toca anda, chulo…',
+  },
+};
+let difficulty = 'normal';            // selected mode key
+let maxAttempts = MODES.normal.attempts; // attempts available this game
 
 // Mobile browsers block autoplay WITH sound; only muted video may autoplay.
 // On these devices we start muted so the trailer always plays, and the user
@@ -37,6 +61,7 @@ let currentVideoId = null; // the trailer we asked for (to tell it apart from ad
 const $ = (id) => document.getElementById(id);
 const screens = {
   start: $('screen-start'),
+  mode: $('screen-mode'),
   countdown: $('screen-countdown'),
   game: $('screen-game'),
   end: $('screen-end'),
@@ -157,6 +182,14 @@ function shuffle(arr) {
 }
 
 // ---------- Game flow ----------
+// Pick a difficulty from the mode-select screen, then jump into the game.
+function selectMode(key) {
+  const mode = MODES[key] || MODES.normal;
+  difficulty = MODES[key] ? key : 'normal';
+  maxAttempts = mode.attempts;
+  startGame();
+}
+
 function startGame() {
   // Reset state
   pool = shuffle(MOVIES);
@@ -218,7 +251,7 @@ function nextRound() {
   // Win check
   if (timeline.length >= TARGET_TIMELINE) return endGame(true);
   // Lose check
-  if (attempts >= MAX_ATTEMPTS) return endGame(false);
+  if (attempts >= maxAttempts) return endGame(false);
   // Draw the next unseen movie (a title never repeats within a game).
   let next = null;
   while (pool.length > 0) {
@@ -340,6 +373,7 @@ function showFeedback(ok, msg) {
 function updateHud() {
   $('placed-count').textContent = timeline.length;
   $('attempts-count').textContent = attempts;
+  $('attempts-max').textContent = maxAttempts;
 }
 
 function setSlotsEnabled(enabled) {
@@ -396,16 +430,17 @@ function endGame(won) {
   current = null;
   try { if (player && player.stopVideo) player.stopVideo(); } catch (_) {}
 
+  const mode = MODES[difficulty] || MODES.normal;
   const title = $('end-title');
   const sub = $('end-sub');
   if (won) {
-    title.textContent = '🏆 ¡HAS GANADO, CINÉFILO HISTÓRICO! 🍿';
+    title.textContent = mode.win;
     title.className = 'end-title win';
-    sub.textContent = `¡Eje cronológico completado con ${timeline.length} películas en ${attempts} intentos!`;
+    sub.textContent = `¡Eje completado con ${timeline.length} películas en ${attempts} intentos! (Modo ${mode.label})`;
   } else {
-    title.textContent = '🙈 ¡HAS PERDIDO, ¿!PERO TU CUANTAS PELICULAS HAS VISTO EN TU VIDA!? 😅';
+    title.textContent = mode.lose;
     title.className = 'end-title lose';
-    sub.textContent = `Colocaste ${timeline.length} de ${TARGET_TIMELINE} películas. ¡Vuelve a intentarlo!`;
+    sub.textContent = `Colocaste ${timeline.length} de ${TARGET_TIMELINE} películas en modo ${mode.label}. ¡Vuelve a intentarlo!`;
   }
   showScreen('end');
 }
@@ -436,7 +471,11 @@ function toggleMute() {
 
 // ---------- Wire up ----------
 updateMuteButton(); // reflect initial muted state (muted on mobile)
-$('btn-start').addEventListener('click', startGame);
-$('btn-again').addEventListener('click', startGame);
+$('btn-start').addEventListener('click', () => showScreen('mode'));
+$('btn-mode-back').addEventListener('click', () => showScreen('start'));
+document.querySelectorAll('.mode-btn').forEach((b) => {
+  b.addEventListener('click', () => selectMode(b.dataset.mode));
+});
+$('btn-again').addEventListener('click', () => showScreen('mode')); // re-pick difficulty
 $('btn-home').addEventListener('click', goHome);
 $('btn-mute').addEventListener('click', toggleMute);
